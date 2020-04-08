@@ -51,16 +51,27 @@ ConfigMap:
 ----------
 
 apiVersion: v1
+
 kind: ConfigMap
+
 metadata:
+  
   namespace: metallb-system
+  
   name: config
+
 data:
+  
   config: |
+    
     address-pools:
+    
     - name: default
+      
       protocol: layer2
+      
       addresses:
+      
       - 192.168.99.100/28
 
 
@@ -75,8 +86,8 @@ Demo:
                              kubectl run webserver --image=nginx:alpine --port 80 
 
 
-NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 webserver   1/1     1            1           3d4h
 
 
@@ -84,9 +95,7 @@ webserver   1/1     1            1           3d4h
 
 
 NAME         TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)        AGE
-
 kubernetes   ClusterIP      10.96.0.1        <none>          443/TCP        28d
-
 webserver    LoadBalancer   10.103.192.239   192.168.99.96   80:30911/TCP   16h
 
 
